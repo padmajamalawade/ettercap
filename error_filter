@@ -1,0 +1,34 @@
+ettercap filtering doesn't work
+
+You can also load a script  without enabling it by appending :0 to the filename
+
+And from the code:
+
+/* enable a loaded filter script? */
+uint8_t f_enabled = 0;
+/* is there a :0 or :1 appended to the filename? */
+if ( (opt_end-optarg >=2) && *(opt_end-2) == ':' ) {
+        *(opt_end-2) = '\0';
+        f_enabled = !( *(opt_end-1) == '0' );
+}
+
+Error 2:
+For those who are installing ettercap in ubuntu 12.04, most of us get the error while make of:
+
+make[2]: *** [ettercap] Error 1
+make[2]: Leaving directory `/usr/local/Programs/ettercap/src'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/usr/local/Programs/ettercap/src'
+make: *** [all-recursive] Error 1
+
+To fix this:
+
+cd src
+gedit Makefile
+
+change 'LIBS = ' to match 'EC_LIBS =
+
+Error 3:
+Edit Ettercap password sniffer engine?
+
+Just add "usuario" to "[USER]" and "clave" to "[PASS]" in the etter.fields file. On my system it is located at /usr/share/ettercap/etter.fields.
