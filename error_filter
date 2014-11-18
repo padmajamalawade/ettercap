@@ -27,7 +27,7 @@ cd src
 gedit Makefile
 
 change 'LIBS = ' to match 'EC_LIBS =
-
+  
 Error 3:
 Edit Ettercap password sniffer engine?
 
